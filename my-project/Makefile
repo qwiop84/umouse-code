@@ -6,9 +6,14 @@ CFILES = my-project.c
 CFILES += api.c
 AFILES += api-asm.S
 
+CFLAGS += -DRCC_LED1=RCC_GPIOB -DPORT_LED1=GPIOB -DPIN_LED1=GPIO3 -DLITTLE_BIT=200000
+V ?= 1
+
 # TODO - you will need to edit these two lines!
-DEVICE=stm32f407vgt6
-OOCD_FILE = board/stm32f4discovery.cfg
+DEVICE=stm32l432kc
+# Default st_nucleo_l4.cfg from openocd doesn't work, see comment in custom one.
+#OOCD_FILE = board/st_nucleo_l4.cfg
+OOCD_FILE = custom_st_nucleo_l4.cfg
 
 # You shouldn't have to edit anything below here.
 VPATH += $(SHARED_DIR)
