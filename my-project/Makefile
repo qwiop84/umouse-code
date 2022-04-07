@@ -2,11 +2,11 @@ PROJECT = awesomesauce
 BUILD_DIR = bin
 
 SHARED_DIR = ../my-common-code
-CFILES = my-project.c
+CFILES = main.c basic_io.c
 CFILES += api.c
 AFILES += api-asm.S
 
-CFLAGS += -DRCC_LED1=RCC_GPIOB -DPORT_LED1=GPIOB -DPIN_LED1=GPIO3 -DLITTLE_BIT=200000
+CFLAGS += -DLITTLE_BIT=200000
 V ?= 1
 
 # TODO - you will need to edit these two lines!
