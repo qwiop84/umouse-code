@@ -83,7 +83,7 @@ TGT_ASFLAGS += $(OPT) $(ARCH_FLAGS) -ggdb3
 
 TGT_LDFLAGS += -T$(LDSCRIPT) -L$(OPENCM3_DIR)/lib -nostartfiles
 TGT_LDFLAGS += $(ARCH_FLAGS)
-TGT_LDFLAGS += -specs=nano.specs
+TGT_LDFLAGS += -specs=rdimon.specs
 TGT_LDFLAGS += -Wl,--gc-sections
 # OPTIONAL
 #TGT_LDFLAGS += -Wl,-Map=$(PROJECT).map
@@ -97,7 +97,7 @@ LDLIBS += -l$(OPENCM3_LIB)
 endif
 # nosys is only in newer gcc-arm-embedded...
 #LDLIBS += -specs=nosys.specs
-LDLIBS += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
+LDLIBS += -Wl,--start-group -lc -lgcc -lrdimon -Wl,--end-group
 
 # Burn in legacy hell fortran modula pascal yacc idontevenwat
 .SUFFIXES:

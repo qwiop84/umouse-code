@@ -23,3 +23,7 @@ OPENCM3_DIR=../libopencm3
 include $(OPENCM3_DIR)/mk/genlink-config.mk
 include ../rules.mk
 include $(OPENCM3_DIR)/mk/genlink-rules.mk
+
+.PHONY: debug
+debug:
+	openocd -f custom_st_nucleo_l4.cfg -c "init; reset halt; arm semihosting enable; resume"

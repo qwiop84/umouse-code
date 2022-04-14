@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 
@@ -5,8 +6,15 @@
 #include "basic_io.h"
 
 
+extern void initialise_monitor_handles(void);
+
+
 int main(void)
 {
+	initialise_monitor_handles();
+
+	printf("Hello world!\n");
+
 	rcc_periph_clock_enable(LED_RCC);
 	rcc_periph_clock_enable(SW_RCC);
 	gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, ALL_LED_PINS);
